@@ -1,0 +1,6 @@
+* ~nix-darwin-kde~
+This is an attempt at being able to compile the KDE apps on with ~nix-darwin~. So far only Dolphin has been added. It's a bit janky, certainly w.r.t. trackpad integration. Also it may just segfault sometimes or refuse to open a folder, so I have some debugging to do at some point.
+
+There definitely has to be a better/cleaner way to set up the overlay, but I'm just going to leave this here as it works well enough.
+
+License is MIT.
