@@ -23,24 +23,10 @@
         konsole = pkgs.kdePackages.konsole;
       };
 
-      apps = {
-        dolphin = {
-          type = "app";
-          program = self'.packages.dolphin;
-        };
-        kcalc = {
-          type = "app";
-          program = self'.packages.kcalc;
-        };
-        kate = {
-          type = "app";
-          program = self'.packages.kate;
-        };
-        konsole = {
-          type = "app";
-          program = self'.packages.konsole;
-        };
-      };
+      apps = builtins.mapAttrs (name: pkg: {
+        type = "app";
+        program = pkg;
+      }) self'.packages;
     };
   });
 }
