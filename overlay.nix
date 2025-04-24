@@ -45,6 +45,7 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
         kprev.qtsvg
       ];
     });
+    kcalc = to-darwin kprev.kcalc;
 
     kcmutils = to-darwin kprev.kcmutils;
     knewstuff = to-darwin kprev.knewstuff;
@@ -65,7 +66,6 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
     kwidgetsaddons = to-darwin kprev.kwidgetsaddons;
     kcodecs = to-darwin kprev.kcodecs;
     kguiaddons = to-darwin kprev.kguiaddons;
-
     karchive = (to-darwin kprev.karchive).overrideAttrs (oldAttrs: {
       buildInputs = oldAttrs.buildInputs ++ [ prev.bzip2 ];
     });

@@ -1,5 +1,14 @@
 * ~nix-darwin-kde~
-This is an attempt at being able to compile the KDE apps on with ~nix-darwin~. So far only Dolphin has been added. It's a bit janky, certainly w.r.t. trackpad integration. Also it may just segfault sometimes or refuse to open a folder, so I have some debugging to do at some point.
+This is an attempt at being able to compile the KDE apps on with ~nix-darwin~.
+
+- Currently "working" applications:
+  - [X] Dolphin
+    - [ ] Weird scrolling
+    - [ ] Sometimes won't open folder or will segfault
+  - [X] KCalc
+    - [ ] Colors are weird
+
+"Working" can mean a lot of things. Some of these may just segfault or have weird colors.
 
 There definitely has to be a better/cleaner way to set up the overlay, but I'm just going to leave this here as it works well enough.
 

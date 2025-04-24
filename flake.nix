@@ -18,11 +18,18 @@
 
       packages = {
         dolphin = pkgs.kdePackages.dolphin;
+        kcalc = pkgs.kdePackages.kcalc;
       };
 
       apps = {
-        type = "app";
-        program = self'.packages.dolphin;
+        dolphin = {
+          type = "app";
+          program = self'.packages.dolphin;
+        };
+        kcalc = {
+          type = "app";
+          program = self'.packages.kcalc;
+        };
       };
     };
   });
