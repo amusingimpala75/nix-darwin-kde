@@ -1,8 +1,11 @@
 final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
   kdePackages = prev.kdePackages.overrideScope (kfinal: kprev:
   let
+    get-or-empty-attrs = attrs: name: if attrs ? ${name} then attrs.${name} else {};
+    get-or-empty-list = attrs: name: if attrs ? ${name} then attrs.${name} else [];
+
     meta-platform-darwin = pkg: pkg.overrideAttrs (oldAttrs: {
-      meta = oldAttrs.meta // {
+      meta = (get-or-empty-attrs oldAttrs "meta") // {
         platforms = prev.lib.platforms.darwin;
       };
     });
@@ -30,12 +33,12 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
       ]) ++ [
         kfinal.extra-cmake-modules
       ];
-      nativebuildInputs = oldAttrs.nativeBuildInputs ++ [
+      nativebuildInputs = (get-or-empty-list oldAttrs "nativeBuildInputs") ++ [
         kprev.wrapQtAppsHook
       ];
       propagatedUserEnvPkgs = prev.lib.optionals (builtins.hasAttr "propagatedUserEnvPkgs" oldAttrs)
       (remove-non-darwin oldAttrs.propagatedUserEnvPkgs);
-      propagatedBuildInputs = purge oldAttrs.propagatedBuildInputs [
+      propagatedBuildInputs = purge (get-or-empty-list oldAttrs "propagatedBuildInputs") [
         "packagekit-qt"
       ];
     });
@@ -49,6 +52,11 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
     kcalc = to-darwin kprev.kcalc;
     kate = to-darwin kprev.kate;
     konsole = to-darwin kprev.konsole;
+    okular = (to-darwin kprev.okular).overrideAttrs (oldAttrs: {
+      cmakeFlags = oldAttrs.cmakeFlags ++ [
+        "-DFORCE_NOT_REQUIRED_DEPENDENCIES=KF6DocTools"
+      ];
+    });
 
     # Frameworks / Libraries
     kcmutils = to-darwin kprev.kcmutils;
@@ -93,6 +101,21 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
     syntax-highlighting = to-darwin kprev.syntax-highlighting;
     knotifyconfig = to-darwin kprev.knotifyconfig;
     kpty = to-darwin kprev.kpty;
+    threadweaver = to-darwin kprev.threadweaver;
+    kwallet = to-darwin kprev.kwallet;
+    libkexiv2 = to-darwin kprev.libkexiv2;
+    purpose = to-darwin kprev.purpose;
+    kirigami = (to-darwin kprev.kirigami).overrideAttrs (oldAttrs:
+    let
+      unwrapped = to-darwin kprev.kirigami.unwrapped;
+    in {
+      propagatedBuildInputs = [
+        unwrapped
+        kfinal.qqc2-desktop-style
+      ];
+      passthru = { inherit unwrapped; };
+    });
+    qqc2-desktop-style = to-darwin kprev.qqc2-desktop-style;
 
     extra-cmake-modules = meta-platform-darwin kprev.extra-cmake-modules;
   });

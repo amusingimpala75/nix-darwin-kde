@@ -21,6 +21,7 @@
         kcalc = pkgs.kdePackages.kcalc;
         kate = pkgs.kdePackages.kate;
         konsole = pkgs.kdePackages.konsole;
+        okular = pkgs.kdePackages.okular;
       };
 
       apps = builtins.mapAttrs (name: pkg: {

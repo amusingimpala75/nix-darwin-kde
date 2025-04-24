@@ -8,6 +8,13 @@ This is an attempt at being able to compile the KDE apps on with ~nix-darwin~.
   - [ ] Konversation
   - [ ] Konqueror
   - [X] Konsole
+  - [X] Okular
+  - [ ] Kdenlive
+  - [ ] Ark
+  - [ ] Plasma System Monitor
+  - [ ] Krita
+  - [ ] Firelight
+  - [ ] KColorChooser
   - [ ] More to be added to the list...
 
 "Working" can mean a lot of things. Some of these may just segfault or have weird colors.
