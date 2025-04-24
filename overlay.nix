@@ -48,6 +48,7 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
     });
     kcalc = to-darwin kprev.kcalc;
     kate = to-darwin kprev.kate;
+    konsole = to-darwin kprev.konsole;
 
     # Frameworks / Libraries
     kcmutils = to-darwin kprev.kcmutils;
@@ -90,6 +91,8 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
     });
     ktexteditor = to-darwin kprev.ktexteditor;
     syntax-highlighting = to-darwin kprev.syntax-highlighting;
+    knotifyconfig = to-darwin kprev.knotifyconfig;
+    kpty = to-darwin kprev.kpty;
 
     extra-cmake-modules = meta-platform-darwin kprev.extra-cmake-modules;
   });

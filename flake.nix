@@ -20,6 +20,7 @@
         dolphin = pkgs.kdePackages.dolphin;
         kcalc = pkgs.kdePackages.kcalc;
         kate = pkgs.kdePackages.kate;
+        konsole = pkgs.kdePackages.konsole;
       };
 
       apps = {
@@ -34,6 +35,10 @@
         kate = {
           type = "app";
           program = self'.packages.kate;
+        };
+        konsole = {
+          type = "app";
+          program = self'.packages.konsole;
         };
       };
     };

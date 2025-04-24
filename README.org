@@ -7,7 +7,7 @@ This is an attempt at being able to compile the KDE apps on with ~nix-darwin~.
   - [X] Kate
   - [ ] Konversation
   - [ ] Konqueror
-  - [ ] Konsole
+  - [X] Konsole
   - [ ] More to be added to the list...
 
 "Working" can mean a lot of things. Some of these may just segfault or have weird colors.
