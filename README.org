@@ -1,12 +1,14 @@
 * ~nix-darwin-kde~
 This is an attempt at being able to compile the KDE apps on with ~nix-darwin~.
 
-- Currently "working" applications:
+- Applications Support:
   - [X] Dolphin
-    - [ ] Weird scrolling
-    - [ ] Sometimes won't open folder or will segfault
   - [X] KCalc
-    - [ ] Colors are weird
+  - [X] Kate
+  - [ ] Konversation
+  - [ ] Konqueror
+  - [ ] Konsole
+  - [ ] More to be added to the list...
 
 "Working" can mean a lot of things. Some of these may just segfault or have weird colors.
 

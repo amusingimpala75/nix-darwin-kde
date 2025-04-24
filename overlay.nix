@@ -40,13 +40,16 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
       ];
     });
   in {
+    # Apps
     dolphin = (to-darwin kprev.dolphin).overrideAttrs (oldAttrs: {
       buildInputs = oldAttrs.buildInputs ++ [
         kprev.qtsvg
       ];
     });
     kcalc = to-darwin kprev.kcalc;
+    kate = to-darwin kprev.kate;
 
+    # Frameworks / Libraries
     kcmutils = to-darwin kprev.kcmutils;
     knewstuff = to-darwin kprev.knewstuff;
     kcoreaddons = to-darwin kprev.kcoreaddons;
@@ -85,6 +88,8 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
         "libpulseaudio"
       ];
     });
+    ktexteditor = to-darwin kprev.ktexteditor;
+    syntax-highlighting = to-darwin kprev.syntax-highlighting;
 
     extra-cmake-modules = meta-platform-darwin kprev.extra-cmake-modules;
   });
