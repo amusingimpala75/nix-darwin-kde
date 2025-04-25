@@ -50,6 +50,7 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
       ];
     });
     kcalc = to-darwin kprev.kcalc;
+    kcolorchooser = to-darwin kprev.kcolorchooser;
     kate = to-darwin kprev.kate;
     konsole = to-darwin kprev.konsole;
     okular = (to-darwin kprev.okular).overrideAttrs (oldAttrs: {

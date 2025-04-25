@@ -18,8 +18,9 @@
 
       packages = {
         dolphin = pkgs.kdePackages.dolphin;
-        kcalc = pkgs.kdePackages.kcalc;
         kate = pkgs.kdePackages.kate;
+        kcalc = pkgs.kdePackages.kcalc;
+        kcolorchooser = pkgs.kdePackages.kcolorchooser;
         konsole = pkgs.kdePackages.konsole;
         okular = pkgs.kdePackages.okular;
       };
