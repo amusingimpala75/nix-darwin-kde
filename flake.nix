@@ -22,6 +22,7 @@
         kcalc = pkgs.kdePackages.kcalc;
         kcolorchooser = pkgs.kdePackages.kcolorchooser;
         konsole = pkgs.kdePackages.konsole;
+        falkon = pkgs.kdePackages.falkon;
         okular = pkgs.kdePackages.okular;
       };
 

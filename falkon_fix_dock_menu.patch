@@ -1,0 +1,24 @@
+diff --git a/src/lib/app/mainmenu.cpp b/src/lib/app/mainmenu.cpp
+index 7e1e3b82f..500f7da31 100644
+--- a/src/lib/app/mainmenu.cpp
++++ b/src/lib/app/mainmenu.cpp
+@@ -41,10 +41,6 @@
+ #include <QMenuBar>
+ #include <QDesktopServices>
+ 
+-#ifdef Q_OS_MACOS
+-extern void qt_mac_set_dock_menu(QMenu* menu);
+-#endif
+-
+ MainMenu::MainMenu(BrowserWindow* window, QWidget* parent)
+     : QMenu(parent)
+     , m_window(window)
+@@ -633,7 +629,7 @@ void MainMenu::init()
+     dockMenu->addAction(m_actions[QSL("File/NewTab")]);
+     dockMenu->addAction(m_actions[QSL("File/NewWindow")]);
+     dockMenu->addAction(m_actions[QSL("File/NewPrivateWindow")]);
+-    qt_mac_set_dock_menu(dockMenu);
++    dockMenu->setAsDockMenu();
+ #endif
+ 
+ #if defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)

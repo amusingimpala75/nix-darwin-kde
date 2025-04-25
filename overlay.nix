@@ -53,6 +53,11 @@ final: prev: prev.lib.optionalAttrs prev.stdenv.isDarwin {
     kcolorchooser = to-darwin kprev.kcolorchooser;
     kate = to-darwin kprev.kate;
     konsole = to-darwin kprev.konsole;
+    falkon = (to-darwin kprev.falkon).overrideAttrs (oldAttrs: {
+      patches = [
+        ./falkon_fix_dock_menu.patch
+      ];
+    });
     okular = (to-darwin kprev.okular).overrideAttrs (oldAttrs: {
       cmakeFlags = oldAttrs.cmakeFlags ++ [
         "-DFORCE_NOT_REQUIRED_DEPENDENCIES=KF6DocTools"
